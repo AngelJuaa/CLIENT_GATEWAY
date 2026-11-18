@@ -10,6 +10,9 @@ interface Envars{
     ORDERS_MICROSERVICE_HOST:string;
     ORDERS_MICROSERVICE_PORT:number;
 
+    CATEGORIES_MICROSERVICE_HOST:string;
+    CATEGORIES_MICROSERVICE_PORT:number;
+
 
 }
 
@@ -20,6 +23,8 @@ const envsShema= joi.object<Envars>({
     PRODUCTS_MICROSERVICE_PORT: joi.number().integer().max(123234567).min(1).required(),
     ORDERS_MICROSERVICE_HOST: joi.string().required(),
     ORDERS_MICROSERVICE_PORT: joi.number().integer().max(123234567).min(1).required(),
+    CATEGORIES_MICROSERVICE_HOST: joi.string().required(),
+    CATEGORIES_MICROSERVICE_PORT: joi.number().integer().max(123234567).min(1).required(),
 }).unknown(true);
 
 // Se recopilan todos los errores de validacion para reportarlos juntos.
@@ -37,4 +42,6 @@ export const envs ={
     productsMicroservicePort:enVars.PRODUCTS_MICROSERVICE_PORT,
     ordersMicroserviceHost:enVars.ORDERS_MICROSERVICE_HOST,
     ordersMicroservicePort:enVars.ORDERS_MICROSERVICE_PORT,
+    categoryMicroserviceHost:enVars.CATEGORIES_MICROSERVICE_HOST,
+    categoryMicroservicePort:enVars.CATEGORIES_MICROSERVICE_PORT,
 }as const;
